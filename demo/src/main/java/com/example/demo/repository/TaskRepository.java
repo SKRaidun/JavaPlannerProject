@@ -17,8 +17,4 @@ public interface TaskRepository extends PagingAndSortingRepository<Task, Long>, 
     @Modifying
     @Query("UPDATE Task t set t.done = :done WHERE t.id = :id")
     void setStatusDoneOnId(@Param("id") Long id, @Param("done") boolean done);
-
-    @Modifying
-    @Query("UPDATE Task t set t.done = FALSE WHERE t.id = :id")
-    void setStatusNotDoneOnId(@Param("id") Long id);
 }
